@@ -3,7 +3,7 @@ resource "aws_instance" "roboshop" {
   for_each = toset(var.instances)
   ami           = "ami-09c813fb71547fc4f"
   instance_type = "t3.micro"
- # instance_type ="t3.micro"
+ # instance_type = each.value
   vpc_security_group_ids = [ aws_security_group.allow_all.id ]
   #vpc_security_group_ids = local.sg_id
   tags = {
