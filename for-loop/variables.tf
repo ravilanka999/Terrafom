@@ -44,9 +44,21 @@ variable "cidr_blocks" {
   
 }
 
+
+variable "sg_tags" {
+    default = {
+        Name = "allow-all"
+    }
+}
+
 variable "instances" {
+    /* default = {
+        mongodb = "t3.micro" # each keyword is assigned for every iteration. you will get each.key and each.value
+        redis = "t3.micro"
+        mysql = "t3.small"
+        rabbitmq = "t3.micro"
+    } */
     default = ["mongodb", "redis", "mysql", "rabbitmq"]
-  
 }
 
 variable "zone_id" {
